@@ -80,22 +80,29 @@ int main()
     Plant plant;
     plant_init(plant);
     vector<vector<double>> x(k,vector <double> (N));
-    cout<<"nomer kanala";
     for (size_t i=0;i<k;i++){
-            cout<<endl<<i;
-        for (size_t j=0;j<N;j++){
+        cout<<'\t'<<"X"<<i<<'\t';
+    }
+    cout<<endl;
+    for (size_t j=0;j<N;j++){
+        for (size_t i=0;i<k;i++){
             x[i][j]=plant_measure(in_channel[i],plant);
-            cout<<"   x["<<j<<"]"<<x[i][j]<<'\t';
+            cout<<'\t'<<x[i][j]<<'\t';
         }
         cout<<endl;
     }
 vector<double> tep1(k),tep2(k);
 tep1=find_tep1(x,a);
 tep2=find_tep2(x,b,g);
-for (int i=0;i<k;i++){
-    cout<<"tep1["<<i<<"]="<<tep1[i]<<endl;
-    cout<<"tep2["<<i<<"]="<<tep2[i]<<endl;
-}
+for (size_t i=0;i<k;i++)
+    cout<<"________________";
+cout<<endl;
+for (int i=0;i<k;i++)
+    cout<<'\t'<<tep1[i]<<'\t';
+    cout<<endl;
+for (int i=0;i<k;i++)
+    cout<<'\t'<<tep2[i]<<'\t';
+
 
 }
 
